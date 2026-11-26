@@ -30,8 +30,9 @@ portwatch-widget/
 - [x] 中继跑通（本机实测，输出中文 `card.json`，1.5 KB）
 - [x] GitHub Actions 定时任务配置
 - [x] 鸿蒙卡片源码（4×4 动态卡 + 详情页）
-- [ ] GitHub 仓库部署（需要 GitHub 账号）
-- [ ] 真机编译安装（需要 PC）
+- [x] GitHub 仓库部署（xinlei199/portwatch-card，Actions 自动更新 card.json）
+- [x] HAP 编译通过（GitHub Actions Linux 环境，产物 94 KB）
+- [ ] 真机安装 + 桌面添加卡片（需要手机操作）
 
 ## 设计要点
 
