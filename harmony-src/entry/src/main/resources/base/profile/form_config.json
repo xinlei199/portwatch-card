@@ -1,0 +1,16 @@
+{
+  "forms": [
+    {
+      "name": "port_card",
+      "description": "$string:form_desc",
+      "src": "./ets/widget/pages/PortCard.ets",
+      "uiSyntax": "arkts",
+      "isDefault": true,
+      "colorMode": "auto",
+      "supportDimensions": ["4*4"],
+      "defaultDimension": "4*4",
+      "updateEnabled": true,
+      "updateDuration": 1
+    }
+  ]
+}

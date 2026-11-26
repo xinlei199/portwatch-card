@@ -1,0 +1,42 @@
+name: relay
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # 每 30 分钟（源站每 3 小时更新，30 分钟足够）
+  workflow_dispatch: {}
+  push:
+    paths:
+      - 'relay/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: relay
+  cancel-in-progress: false
+
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build card.json
+        run: node relay/relay.mjs relay/card.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@users.noreply.github.com"
+          git add relay/card.json relay/.cache/translations.json
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: update card.json"
+            git push
+          fi

@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "GTA6 移植进度"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "GTA6 PC 移植进度与最新消息"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "GTA6 进度"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "桌面卡片"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "GTA6 进度"
+    },
+    {
+      "name": "form_desc",
+      "value": "GTA6 PC 移植进度与最新消息"
+    }
+  ]
+}
