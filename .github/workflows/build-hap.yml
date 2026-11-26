@@ -28,7 +28,7 @@ jobs:
 
       - name: Configure npm registry
         run: |
-          echo "registry=https://repo.harmonyos.com/npm/" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
           echo "@ohos:registry=https://repo.harmonyos.com/npm/" >> ~/.npmrc
 
       - name: Build HAP
