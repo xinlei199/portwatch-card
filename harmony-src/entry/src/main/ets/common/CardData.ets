@@ -28,13 +28,18 @@ export interface TopItem {
   repo: string | null;
 }
 
+export interface ExeInfo {
+  status: string;
+  releasedAt: string | null;
+}
+
 export interface CardData {
   updatedAt: string;
   builtAt: string;
   top: TopItem | null;
   top3: number;
   news: NewsItem[];
-  exe: { status: string; releasedAt: string | null } | null;
+  exe: ExeInfo | null;
   source: string;
 }
 

@@ -1,5 +1,5 @@
 // 4×4 桌面卡片（约半屏）
-import { postCardAction } from '@kit.ArkUI';
+// 注意：postCardAction 是卡片内全局函数，不能从 @kit.ArkUI 导入
 import { CardData, EMPTY_CARD, NewsItem, parseCard, relTime } from '../../common/CardData';
 
 @Entry

@@ -9,8 +9,11 @@ function toFormJson(data: CardData): string {
 
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want): formBindingData.FormBindingData {
-    // 先返回缓存（或空数据），保证卡片立即有内容
-    this.refresh(this.context.formId).catch(() => {});
+    // formId 从 want 参数里取（FormExtensionContext 没有 formId 属性）
+    const formId = want.parameters?.['ohos.extra.param.key.form_identity'] as string;
+    if (formId) {
+      this.refresh(formId).catch(() => {});
+    }
     return formBindingData.createFormBindingData({ dataJson: JSON.stringify(EMPTY_CARD) });
   }
 
