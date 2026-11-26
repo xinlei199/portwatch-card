@@ -1,0 +1,42 @@
+name: build-hap
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - 'harmony-src/**'
+      - '.github/workflows/build-hap.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install HarmonyOS command line tools (Linux)
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          B="https://github.com/ErBWs/ohos-sdk/releases/latest/download"
+          curl -fsSL "$B/ohos-sdk-linux-amd64.tar.gz.aa" -o a.aa
+          curl -fsSL "$B/ohos-sdk-linux-amd64.tar.gz.ab" -o a.ab
+          curl -fsSL "$B/ohos-sdk-linux-amd64.tar.gz.sha256" -o a.sha256
+          cat a.aa a.ab > ohos-sdk-linux-amd64.tar.gz
+          sha256sum -c a.sha256
+          tar -xzf ohos-sdk-linux-amd64.tar.gz
+          ls -d command-line-tools
+
+      - name: Build HAP
+        run: |
+          export PATH="$GITHUB_WORKSPACE/command-line-tools/bin:$GITHUB_WORKSPACE/command-line-tools/tool/node/bin:$PATH"
+          export DEVECO_SDK_HOME="$GITHUB_WORKSPACE/command-line-tools/sdk"
+          cd harmony-src
+          hvigorw --version || true
+          hvigorw assembleHap --mode module -p product=default -p buildMode=debug --no-daemon
+
+      - name: Upload HAP
+        uses: actions/upload-artifact@v4
+        with:
+          name: portwatch-hap
+          path: harmony-src/entry/build/default/outputs/default/*.hap
+          if-no-files-found: warn
