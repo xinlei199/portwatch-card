@@ -1,14 +1,14 @@
 {
- "updatedAt": "2026-11-26T10:23:53.338Z",
- "builtAt": "2026-11-26T12:29:07.370Z",
+ "updatedAt": "2026-11-26T19:14:28.197Z",
+ "builtAt": "2026-11-26T21:49:04.938Z",
  "top": {
-  "name": "CGBJ",
-  "score": 91.5,
+  "name": "Belobug",
+  "score": 91.3,
   "reachedZh": "可游玩",
-  "fps": 25,
-  "repo": "codec-d/cool_fox"
+  "fps": 22,
+  "repo": "Belobug/VIctory-Belobug-AMD"
  },
- "top3": 88,
+ "top3": 89.3,
  "news": [
   {
    "date": "2026-11-25",
