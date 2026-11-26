@@ -3,9 +3,11 @@ import { http } from '@kit.NetworkKit';
 import { preferences } from '@kit.ArkData';
 import { common } from '@kit.AbilityKit';
 
-// TODO: 部署 GitHub 仓库后改成你的 raw 地址，例如：
-// https://raw.githubusercontent.com/你的用户名/portwatch-card/main/relay/card.json
-export const CARD_URL = 'https://raw.githubusercontent.com/OWNER/portwatch-card/main/relay/card.json';
+// 卡片数据地址：直连 + 国内镜像兜底
+export const CARD_URLS: string[] = [
+  'https://raw.githubusercontent.com/xinlei199/portwatch-card/main/relay/card.json',
+  'https://gh-proxy.com/https://raw.githubusercontent.com/xinlei199/portwatch-card/main/relay/card.json',
+];
 
 const PREF_NAME = 'portwatch_cache';
 const KEY = 'cardJson';
@@ -73,24 +75,26 @@ export function relTime(iso: string): string {
 }
 
 export async function fetchCard(): Promise<string | null> {
-  const req = http.createHttp();
-  try {
-    const resp = await req.request(CARD_URL, {
-      method: http.RequestMethod.GET,
-      expectDataType: http.HttpDataType.STRING,
-      connectTimeout: 8000,
-      readTimeout: 8000,
-      header: { 'User-Agent': 'Mozilla/5.0 PortWatchCard' },
-    });
-    if (resp.responseCode === 200 && typeof resp.result === 'string') {
-      return resp.result as string;
+  for (const url of CARD_URLS) {
+    const req = http.createHttp();
+    try {
+      const resp = await req.request(url, {
+        method: http.RequestMethod.GET,
+        expectDataType: http.HttpDataType.STRING,
+        connectTimeout: 8000,
+        readTimeout: 8000,
+        header: { 'User-Agent': 'Mozilla/5.0 PortWatchCard' },
+      });
+      if (resp.responseCode === 200 && typeof resp.result === 'string') {
+        return resp.result as string;
+      }
+    } catch (e) {
+      // 换下一个地址
+    } finally {
+      req.destroy();
     }
-    return null;
-  } catch (e) {
-    return null;
-  } finally {
-    req.destroy();
   }
+  return null;
 }
 
 export async function loadCache(context: common.Context): Promise<string | null> {
