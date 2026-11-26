@@ -26,6 +26,11 @@ jobs:
           tar -xzf ohos-sdk-linux-amd64.tar.gz
           ls -d command-line-tools
 
+      - name: Configure npm registry
+        run: |
+          echo "registry=https://repo.harmonyos.com/npm/" > ~/.npmrc
+          echo "@ohos:registry=https://repo.harmonyos.com/npm/" >> ~/.npmrc
+
       - name: Build HAP
         run: |
           export PATH="$GITHUB_WORKSPACE/command-line-tools/bin:$GITHUB_WORKSPACE/command-line-tools/tool/node/bin:$PATH"
