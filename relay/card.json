@@ -1,15 +1,22 @@
 {
- "updatedAt": "2026-11-27T10:19:47.191Z",
- "builtAt": "2026-11-27T12:16:54.609Z",
+ "updatedAt": "2026-11-27T19:13:01.931Z",
+ "builtAt": "2026-11-27T21:39:04.553Z",
  "top": {
-  "name": "Belobug",
-  "score": 91.3,
+  "name": "VIctory-NVIDIA",
+  "score": 90,
   "reachedZh": "可游玩",
-  "fps": 22,
-  "repo": "Belobug/VIctory-Belobug-AMD"
+  "fps": 20,
+  "repo": "trustno1-coder/VIctory-NVIDIA"
  },
- "top3": 89.3,
+ "top3": 88.9,
  "news": [
+  {
+   "date": "2026-11-27",
+   "categoryZh": "下架",
+   "titleZh": "独家报道：GitHub因违反服务条款而删除了Belobug的《GTA VI》版本",
+   "dekZh": "我们排行榜上评分最高的版本背后的代码仓库和 GitHub 账户已不复存在。PortWatch已确认，GitHub因其违反服务条款而将其移除。",
+   "link": "https://portwatch-vi.xyz/news/2026-11-27-belobug-dmca"
+  },
   {
    "date": "2026-11-26",
    "categoryZh": "移植进展",
@@ -23,13 +30,6 @@
    "titleZh": "我们已经看到了 Belobug 的 AMD 配置，它遥遥领先。",
    "dekZh": "在全 AMD 平台的电脑上，《GTA VI》的开放世界看起来接近零售版游戏，并且可以完成任务。它的运行帧率为约3 fps，但我们在榜单上追踪的其他任何东西看起来都不像它。",
    "link": "https://portwatch-vi.xyz/news/2026-11-25-belobug-way-ahead"
-  },
-  {
-   "date": "2026-11-25",
-   "categoryZh": "移植进展",
-   "titleZh": "ZETTROX的《GTA VI》版本迄今为止似乎不会崩溃",
-   "dekZh": "从露西亚的序章到杰森的第一次任务，它一次都没有崩溃过，并且正在慢慢地朝自由漫游的方向发展。其中有些地方不一样。",
-   "link": "https://portwatch-vi.xyz/news/2026-11-25-zettrox-no-crashes"
   }
  ],
  "exe": {
