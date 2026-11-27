@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-26T19:14:28.197Z",
- "builtAt": "2026-11-26T21:49:04.938Z",
+ "updatedAt": "2026-11-27T01:34:25.666Z",
+ "builtAt": "2026-11-27T02:39:47.223Z",
  "top": {
   "name": "Belobug",
   "score": 91.3,
@@ -10,6 +10,13 @@
  },
  "top3": 89.3,
  "news": [
+  {
+   "date": "2026-11-26",
+   "categoryZh": "移植进展",
+   "titleZh": "独家消息：《GTA VI》多人模式已在PC上运行",
+   "dekZh": "TeK的团队在CGBJ版本的私有分支上实现了玩家、车辆和近距离语音聊天功能，帧率稳定在25至30帧/秒。PortWatch已核实该视频真实无误。",
+   "link": "https://portwatch-vi.xyz/news/2026-11-26-multiplayer-running"
+  },
   {
    "date": "2026-11-25",
    "categoryZh": "移植进展",
@@ -23,13 +30,6 @@
    "titleZh": "ZETTROX的《GTA VI》版本迄今为止似乎不会崩溃",
    "dekZh": "从露西亚的序章到杰森的第一次任务，它一次都没有崩溃过，并且正在慢慢地朝自由漫游的方向发展。其中有些地方不一样。",
    "link": "https://portwatch-vi.xyz/news/2026-11-25-zettrox-no-crashes"
-  },
-  {
-   "date": "2026-11-25",
-   "categoryZh": "移植进展",
-   "titleZh": "《GTA VI》版本露西亚的序章，并完成了杰森的第一个任务",
-   "dekZh": "私人版本现在可以玩到开场和“去钓鱼”，不过大多数仍然渲染不佳，车辆很少能正常工作。",
-   "link": "https://portwatch-vi.xyz/news/2026-11-25-prologue-gone-fishing"
   }
  ],
  "exe": {
