@@ -1,6 +1,7 @@
 // 详情页：完整新闻列表，点击打开原文
 import { common } from '@kit.AbilityKit';
 import { CardData, EMPTY_CARD, NewsItem, fetchCard, loadCache, parseCard, relTime, saveCache } from '../common/CardData';
+import { maybeTriggerRelay } from '../common/RelayTrigger';
 
 @Entry
 @Component
@@ -14,6 +15,8 @@ struct Index {
   }
 
   async load(): Promise<void> {
+    // 打开 App 时顺便让 GitHub 跑一次 relay（无 token 文件时自动跳过，不阻塞）
+    maybeTriggerRelay(this.ctx).catch(() => {});
     const cached = await loadCache(this.ctx);
     if (cached) {
       this.d = parseCard(cached);
