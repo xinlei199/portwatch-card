@@ -2,7 +2,7 @@ name: relay
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # 每 30 分钟（源站每 3 小时更新，30 分钟足够）
+    - cron: '13,43 * * * *'  # 错峰：避开 :00/:30 全球拥堵（源站每 3 小时更新）
   workflow_dispatch: {}
   push:
     paths:
